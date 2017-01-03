@@ -33,6 +33,22 @@ Status ListEmpty_Sq(SqList L)
   return L.length == 0 ? TRUE : FALSE;
 }
 
+int ListLength_Sq(SqList L)
+{
+    return L.length;
+}
+
+Status GetElem_Sq(SqList L, int i, LElemType_Sq *e)
+{
+    if(i<1 || i>L.length)
+        return ERROR;
+    else
+        *e = L.elem[i-1];
+
+    return *e;
+}
+
+
 Status ListInsert_Sq(SqList *L, int i, LElemType_Sq e)
 {
   LElemType_Sq *newbase;

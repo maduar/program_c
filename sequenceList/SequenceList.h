@@ -27,6 +27,9 @@ void DestroyList_Sq(SqList *L);
 
 Status ListEmpty_Sq(SqList L);
 
+Status ListLength_Sq(SqList L);
+
+Status GetElem_Sq(SqList L, int i, LElemType_Sq *e);
 
 Status ListInsert_Sq(SqList *L, int i, LElemType_Sq e);
 
