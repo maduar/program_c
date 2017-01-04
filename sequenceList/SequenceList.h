@@ -31,6 +31,13 @@ Status ListLength_Sq(SqList L);
 
 Status GetElem_Sq(SqList L, int i, LElemType_Sq *e);
 
+Status PriorElem_Sq(SqList L, LElemType_Sq cur_e, LElemType_Sq *pre_e);
+
+Status NextElem_Sq(SqList L,  LElemType_Sq cur_e, LElemType_Sq *next_e);
+
+int LocateElem_Sq(SqList L, LElemType_Sq e, Status(Compare)(LElemType_Sq, LElemType_Sq));
+
+
 Status ListInsert_Sq(SqList *L, int i, LElemType_Sq e);
 
 

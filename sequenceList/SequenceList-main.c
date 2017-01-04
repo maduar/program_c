@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "SequenceList.c"
 
-Status ComGreater(LElemType_Sq e, LElemType_Sq data);
+Status CmpGreater(LElemType_Sq e, LElemType_Sq data);
 void PrintElem(LElemType_Sq e);
 
 int main(int argc, char **argv) {
@@ -15,16 +15,39 @@ int main(int argc, char **argv) {
   len = ListLength_Sq(L);
   printf("L.length = %d\n", len);
   ListEmpty_Sq(L) ? printf("L 为空!! \n") : printf("L 不为空!!\n");
+  printf("\n\n");
 
-//  L.length = 10;
   int aa = 10;
-  ListInsert_Sq(&L, 1, aa);
+  printf("Insert two elements! \n");
+  ListInsert_Sq(&L, 1, 11);
+  ListInsert_Sq(&L, 2, aa);
   len = ListLength_Sq(L);
   printf("L.length = %d\n", len);
   ListEmpty_Sq(L) ? printf("L为空!!\n") : printf("L 不为空！！\n");
   value = GetElem_Sq(L, 1, &e);
   printf("L的第1个元素是: %d\n", e);
+  value = GetElem_Sq(L, 2, &e);
+  printf("L的第2个元素是: %d\n", e);
 
+  i = LocateElem_Sq(L, 10, CmpGreater);
+  printf("i = %d\n", i);
 
+  printf("\n\n");
+  printf("Get Prior Element !\n");
+  PriorElem_Sq(L, 10, &e);
+  printf("10的前驱节点是 i = %d\n", e);
+
+  printf("\n\n");
+  printf("Get Next Element !\n");
+  NextElem_Sq(L, 11, &e);
+  printf("11的后继节点是 i = %d\n", e);
+
+  return 0;
 
 }
+
+Status CmpGreater(LElemType_Sq e, LElemType_Sq data)
+{
+    return data > e ? TRUE : FALSE;
+}
+

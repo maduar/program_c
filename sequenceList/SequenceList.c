@@ -45,8 +45,54 @@ Status GetElem_Sq(SqList L, int i, LElemType_Sq *e)
     else
         *e = L.elem[i-1];
 
-    return *e;
+    return OK;
 }
+
+int LocateElem_Sq(SqList L, LElemType_Sq e, Status(Compare)(LElemType_Sq, LElemType_Sq))
+{
+    int i = 1;
+    while(i <= L.length && !Compare(e, L.elem[i - 1]))
+        ++i;
+
+    if(i <= L.length)
+        return i;
+    else
+        return 0;
+}
+
+
+Status PriorElem_Sq(SqList L, LElemType_Sq cur_e, LElemType_Sq *pre_e) {
+    int i = 1;
+
+    if(L.elem[0] != cur_e) {
+
+        while(i < L.length && L.elem[i] != cur_e)
+            ++i;
+
+        if(i < L.length) {
+            *pre_e = L.elem[i - 1];
+            return OK;
+        }
+    }
+
+    return ERROR;
+
+}
+
+Status NextElem_Sq(SqList L,  LElemType_Sq cur_e, LElemType_Sq *next_e) {
+    int i = 0;
+
+    while(i < L.length && L.elem[i] != cur_e)
+        ++i;
+
+    if(i < L.length) {
+        *next_e = L.elem[i + 1];
+        return OK;
+    }
+
+    return ERROR;
+}
+
 
 
 Status ListInsert_Sq(SqList *L, int i, LElemType_Sq e)
