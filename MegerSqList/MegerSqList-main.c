@@ -31,6 +31,10 @@ int main(int argc, char **argv) {
     ListTraverse_Sq(Lc1, PrintElem);
     printf("\n\n");
 
+    MergerSqList_2(La, Lb, &Lc2);
+    ListTraverse_Sq(Lc2, PrintElem);
+    printf("\n\n");
+
 }
 
 

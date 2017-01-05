@@ -37,9 +37,39 @@ void MergerSqList_1(SqList La, SqList Lb, SqList *Lc) {
         GetElem_Sq(Lb, j++, &aj);
         ListInsert_Sq(Lc, ++k, aj);
     }
-
 }
 
+
+void MergerSqList_2(SqList La, SqList Lb, SqList *Lc) {
+    LElemType_Sq *pa, *pb, *pc;
+    LElemType_Sq *pa_last, *pb_last;
+
+    pa = La.elem;
+    pb = Lb.elem;
+
+    (*Lc).listsize = (*Lc).length = La.length + Lb.length;
+    pc = (*Lc).elem = (LElemType_Sq *)malloc((*Lc).listsize * sizeof(LElemType_Sq));
+
+    if(!pc)
+        exit(OVERFLOW);
+
+    pa_last = La.elem + La.length - 1;
+    pb_last = Lb.elem + Lb.length - 1;
+
+    while(pa <= pa_last && pb <= pb_last) {
+        if(*pa <= *pb)
+            *pc++ = *pa++;
+        else
+            *pc++ = *pb++;
+    }
+
+    while(pa <= pa_last)
+        *pc++ = *pa++;
+
+    while(pb <= pb_last)
+        *pc++ = *pb++;
+
+}
 
 
 #endif
