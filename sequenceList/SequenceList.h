@@ -42,6 +42,8 @@ Status ListInsert_Sq(SqList *L, int i, LElemType_Sq e);
 
 Status ListDelete_Sq(SqList *L,  LElemType_Sq i, LElemType_Sq *e);
 
+Status ListTraverse_Sq(SqList L, void(Visit)(LElemType_Sq));
+
 #endif
 
 

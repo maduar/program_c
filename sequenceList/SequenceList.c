@@ -146,6 +146,13 @@ Status ListDelete_Sq(SqList *L,  LElemType_Sq i, LElemType_Sq *e) {
     return OK;
 }
 
+Status ListTraverse_Sq(SqList L, void(Visit)(LElemType_Sq)) {
+    int i;
+    for(i = 0; i < L.length; i++)
+        Visit(L.elem[i]);
+
+    return OK;
+}
 
 
 #endif

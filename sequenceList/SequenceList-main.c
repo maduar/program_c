@@ -44,12 +44,16 @@ int main(int argc, char **argv) {
 
   printf("\n\n");
   len = ListLength_Sq(L);
+  ListTraverse_Sq(L, PrintElem);
+  printf("\n\n");
   printf("delete 之前的len = %d\n", len);
   ListDelete_Sq(&L, 2, &e);
   len = ListLength_Sq(L);
   printf("delete 之后的len = %d\n", len);
 
   printf("\n\n");
+
+  ListTraverse_Sq(L, PrintElem);
 
   return 0;
 
@@ -60,3 +64,6 @@ Status CmpGreater(LElemType_Sq e, LElemType_Sq data)
     return data > e ? TRUE : FALSE;
 }
 
+void PrintElem(LElemType_Sq e) {
+    printf("%d ", e);
+}
