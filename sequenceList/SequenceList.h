@@ -40,6 +40,7 @@ int LocateElem_Sq(SqList L, LElemType_Sq e, Status(Compare)(LElemType_Sq, LElemT
 
 Status ListInsert_Sq(SqList *L, int i, LElemType_Sq e);
 
+Status ListDelete_Sq(SqList *L,  LElemType_Sq i, LElemType_Sq *e);
 
 #endif
 

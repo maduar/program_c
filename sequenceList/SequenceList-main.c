@@ -42,6 +42,15 @@ int main(int argc, char **argv) {
   NextElem_Sq(L, 11, &e);
   printf("11的后继节点是 i = %d\n", e);
 
+  printf("\n\n");
+  len = ListLength_Sq(L);
+  printf("delete 之前的len = %d\n", len);
+  ListDelete_Sq(&L, 2, &e);
+  len = ListLength_Sq(L);
+  printf("delete 之后的len = %d\n", len);
+
+  printf("\n\n");
+
   return 0;
 
 }

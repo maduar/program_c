@@ -127,4 +127,25 @@ Status ListInsert_Sq(SqList *L, int i, LElemType_Sq e)
 
 }
 
+Status ListDelete_Sq(SqList *L,  LElemType_Sq i, LElemType_Sq *e) {
+    int j;
+    LElemType_Sq *q, *p;
+
+    if(i < 1 || i > (*L).length)
+        return ERROR;
+
+    p = &(*L).elem[i - 1];
+    *e = *p;
+    q = (*L).elem + (*L).length - 1;
+
+    for(++p; p <= q; p++)
+        *(p - 1) = *p;
+
+    (*L).length--;
+
+    return OK;
+}
+
+
+
 #endif
