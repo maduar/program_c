@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "../Status.h"
+#include "../util/Status.h"
 
 #define LIST_INIT_SIZE 100
 #define LISTINCREMENT 10
