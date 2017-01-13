@@ -16,7 +16,7 @@ int Scanf(FILE *fp, char *format, ...) {
 
     len = strlen(format);
 
-    va_list = (ap, format);
+    va_start(ap, format);
 
     for(count = 0, k = 2; k <= len; k += 2) {
         while((tmp = getc(fp)) != EOF) {
@@ -30,7 +30,7 @@ int Scanf(FILE *fp, char *format, ...) {
             break;
 
         if(format[k -1] == 'c') {
-            ch = va_list(ap, char*);
+            ch = va_arg(ap, char*);
 
             if(tmp != EOF)
                 count += fscanf(fp, "%c", ch);
@@ -67,7 +67,7 @@ int Scanf(FILE *fp, char *format, ...) {
         if(format[k -1] == 's') {
             s = va_arg(ap, char*);
 
-            while((tmp = getc(fp)) != EOF && (!isprint(tmp) || tmp = ' '))
+            while((tmp = getc(fp)) != EOF && (!isprint(tmp) || tmp == ' '))
                 ;
 
             n = 0;
@@ -75,8 +75,8 @@ int Scanf(FILE *fp, char *format, ...) {
             if(!feof(fp)) {
                 ungetc(tmp, fp);
                 while((tmp = getc(fp)) != EOF) {
-                    if(isprint(tmp) && tmp != '')
-                        a[n++] = tmp;
+                    if(isprint(tmp) && tmp != ' ')
+                        s[n++] = tmp;
                     else
                         break;
 
