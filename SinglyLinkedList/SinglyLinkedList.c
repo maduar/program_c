@@ -257,4 +257,31 @@ Status CreateList_HL(FILE *fp, LinkList *L, int n) {
     return OK;
 }
 
+Status CreateList_TL(FILE *fp, LinkList *L, int n) {
+    int i;
+    LinkList p, q;
+    LElemType_L tmp;
+
+    *L = (LinkList)malloc(sizeof(LNode));
+    if(!(*L))
+        exit(OVERFLOW);
+    (*L) -> next = NULL;
+
+    for(i = 1, q = *L; i<= n; ++i) {
+        if(Scanf(fp, "%d", &tmp) == 1) {
+            p = (LinkList)malloc(sizeof(LNode));
+            if(!p)
+                exit(OVERFLOW);
+            p -> data = tmp;
+            q -> next = p;
+            q = q -> next;
+        } else
+            return ERROR;
+    }
+
+    q -> next = NULL;
+
+    return OK;
+}
+
 #endif

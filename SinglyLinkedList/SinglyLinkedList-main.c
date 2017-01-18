@@ -44,15 +44,24 @@ int main(int argc, char **argv)
     a = ListLength_L(L);
     printf("L.length = %d, e = %d\n", a, e);
 
-    // CreateList_HL
+//    CreateList_HL
+    FILE *fp;
+    LinkList H;
+    printf("头插法建立单链表 H = ");
+    fp = fopen("TestData_HL.txt", "r");
+    CreateList_HL(fp, &H, 5);
+    fclose(fp);
+    ListTraverse_L(H, PrintElem);
+    printf("\n\n");
+
 //    FILE *fp;
-//    LinkList H;
-//    printf("头插法建立单链表 H =");
-//    fp = fopen("TestData_HL.txt", "r");
-//    CreateList_HL(fp, &H, 5);
-//    fclose(fp);
-//    ListTraverse_L(H, PrintElem);
-//    printf("\n\n");
+    LinkList HHH;
+    printf("尾插法建立单链表 HHH = ");
+    fp = fopen("TestData_HL.txt", "r");
+    CreateList_TL(fp, &HHH, 5);
+    fclose(fp);
+    ListTraverse_L(HHH, PrintElem);
+    printf("\n\n");
     return 0;
 }
 

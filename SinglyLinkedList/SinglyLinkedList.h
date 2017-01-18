@@ -36,6 +36,7 @@ Status ListDelete_L(LinkList L, int i, LElemType_L *e);
 Status ListTraverse_L(LinkList L, void(Visit)(LElemType_L));
 
 Status CreateList_HL(FILE *fp, LinkList *L, int n);
+Status CreateList_TL(FILE *fp, LinkList *L, int n);
 
 Status getElem_L(LinkList L, int i, LElemType_L *e);
 Status ListInert_L(LinkList L, int i, LElemType_L e);
